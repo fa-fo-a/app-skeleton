@@ -9,9 +9,6 @@ RUN apt update &&\
     unzip \
     curl
 
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&\
-    apt install -y nodejs
-
 RUN add-apt-repository -y ppa:ondrej/php &&\
     apt update -y &&\
     apt install -y php8.2 \

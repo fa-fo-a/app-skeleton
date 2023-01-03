@@ -49,7 +49,6 @@ pipelines:
       # - step:
       #     caches:
       #       - composer
-      #       - node
       #       - docker
       #     name: Deploy image
       #     script:
@@ -57,7 +56,6 @@ pipelines:
       #       - echo "<?php return \"$PROD_DECRYPT_KEY\";" > config/secrets/prod/prod.decrypt.private.php
       #       - composer install --no-dev --optimize-autoloader --no-scripts
       #       - composer dump-env prod
-      #       - npm install && npm run build
       #       - bin/console cache:clear
       #       - docker build -t *yourimagename*-nginx:$BITBUCKET_COMMIT -f docker/Dockerfile_nginx .
       #       - docker build -t *yourimagename*-php:$BITBUCKET_COMMIT -f docker/Dockerfile_php .

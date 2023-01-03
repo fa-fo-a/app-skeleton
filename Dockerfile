@@ -60,4 +60,6 @@ RUN echo 'user = app' >> /etc/php/8.2/fpm/pool.d/www.conf &&\
     echo 'listen.owner = app' >> /etc/php/8.2/fpm/pool.d/www.conf &&\
     echo 'listen.group = app' >> /etc/php/8.2/fpm/pool.d/www.conf
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 CMD /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf

@@ -18,6 +18,7 @@ RUN add-apt-repository -y ppa:ondrej/php &&\
         php8.2-intl \
         php8.2-zip \
         php8.2-dom \
+        php8.2-mbstring \
     &&\
     apt purge -y apache2
 

@@ -23,7 +23,7 @@ RUN add-apt-repository -y ppa:ondrej/php &&\
     apt purge -y apache2
 
 RUN echo "zend_extension=$(find /usr/lib/php -name xdebug.so)" >> /etc/php/8.2/mods-available/xdebug.ini &&\
-    echo "xdebug.mode=debug" >> /etc/php/8.2/mods-available/xdebug.ini &&\
+    echo "xdebug.mode=debug,coverage" >> /etc/php/8.2/mods-available/xdebug.ini &&\
     echo "xdebug.start_with_request=yes" >> /etc/php/8.2/mods-available/xdebug.ini &&\
     echo "xdebug.client_host=host.docker.internal" >> /etc/php/8.2/mods-available/xdebug.ini &&\
     echo "xdebug.client_port=9001" >> /etc/php/8.2/mods-available/xdebug.ini

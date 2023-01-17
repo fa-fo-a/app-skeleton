@@ -1,0 +1,6 @@
+#!/bin/bash
+docker run -v$PWD/../:/app -w /app achertovsky/devenv-docker:8.2 composer i --optimize-autoloader
+if [[ ! -z "${RUN_TESTS}" ]]
+then
+  docker run -v$PWD/../:/app -w /app achertovsky/devenv-docker:8.2 vendor/bin/phpunit
+fi

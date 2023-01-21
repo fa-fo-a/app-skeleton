@@ -9,7 +9,6 @@ then
       | grep "launched"\
       | wc -l\
     )
-    echo $launched;
     if [[ "${launched}" -eq 0 ]]; then
       echo "MySQL not running, waiting."
       sleep 1
@@ -21,5 +20,10 @@ then
   # below suggested command to migrate symfony. uncomment it or create own
   # docker exec -w /var/www/html prehooktest bin/console -etest doctrine:migrations:migrate
   docker exec -w /var/www/html prehooktest vendor/bin/phpunit
+  testsStatus=$?
+  if [[ ! $testsStatus -eq 0 ]]; then
+    echo "Tests failed, doing exit"
+    exit $testsStatus
+  fi
   docker kill prehooktest && docker rm prehooktest
 fi

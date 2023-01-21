@@ -2,5 +2,24 @@
 docker run -v$PWD/../:/app -w /app achertovsky/devenv-docker:8.2 composer i --optimize-autoloader
 if [[ ! -z "${RUN_TESTS}" ]]
 then
-  docker run -v$PWD/../:/app -w /app achertovsky/devenv-docker:8.2 vendor/bin/phpunit
+  docker run -e XDEBUG_MODE=off -d --name prehooktest -v ${PWD}/../:/var/www/html achertovsky/devenv-docker:8.2
+  while [[ true ]]; do
+    launched=$(\
+      docker exec prehooktest mysql -uroot -ppass -e "select 'launched'"\
+      | grep "launched"\
+      | wc -l\
+    )
+    echo $launched;
+    if [[ "${launched}" -eq 0 ]]; then
+      echo "MySQL not running, waiting."
+      sleep 1
+    else
+      echo "MySQL running, ready to proceed."
+      break;
+    fi
+  done
+  # below suggested command to migrate symfony. uncomment it or create own
+  # docker exec -w /var/www/html prehooktest bin/console -etest doctrine:migrations:migrate
+  docker exec -w /var/www/html prehooktest vendor/bin/phpunit
+  docker kill prehooktest && docker rm prehooktest
 fi

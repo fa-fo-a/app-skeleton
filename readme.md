@@ -4,8 +4,9 @@ Goal of repository is to provide convenient source for getting config for devenv
 # usage and, possible, (part of) readme of future project
 
 ## container building
-there's both instructions in bibucket-pipelines.yml and hub.docker.com autobuilds can be used for that<br>
-to launch phpunit tests in hub.docker.com autobuilds define env var RUN_TESTS in autobuilds config
+there's both instructions in bibucket-pipelines.yml and [hub.docker.com autobuilds](https://docs.docker.com/docker-hub/builds/) can be used for that<br>
+to launch phpunit tests in hub.docker.com autobuilds define env var RUN_TESTS in autobuilds config.<br>
+_Note that migrations part commented and you may need to uncomment/create own in both solutions_
 
 ## local docker
 docker should be installed to run commands below

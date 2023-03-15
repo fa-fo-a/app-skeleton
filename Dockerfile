@@ -7,7 +7,11 @@ RUN apt update &&\
     libzip-dev \
     nginx \
     unzip \
+    tzdata \
     curl
+
+ENV TZ="Europe/Athens"
+RUN apt install -y git
 
 RUN add-apt-repository -y ppa:ondrej/php &&\
     apt update -y &&\

@@ -25,7 +25,7 @@ in dev env container nginx and fpm workers works under app:app user that is 1000
 ### to build and launch
 ```
 docker build -t app .
-docker run -d -p80:80 --add-host=host.docker.internal:host-gateway --name app -v ${PWD}:/var/www/html app
+docker run -d -p80:80 --add-host=host.docker.internal:host-gateway --name app -v ${PWD}:/var/www/html -v ${HOME}/.ssh:/home/app/.ssh app
 ```
 
 ### to launch after built and launched

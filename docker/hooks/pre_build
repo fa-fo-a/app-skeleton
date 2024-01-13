@@ -1,8 +1,8 @@
 #!/bin/bash
-docker run -v$PWD/../:/app -w /app achertovsky/devenv-docker:8.2 composer i --optimize-autoloader
+docker run -v$PWD/../:/app -w /app achertovsky/devenv-docker:8.3 composer i --optimize-autoloader
 if [[ ! -z "${RUN_TESTS}" ]]
 then
-  docker run -e XDEBUG_MODE=off -d --name prehooktest -v ${PWD}/../:/var/www/html achertovsky/devenv-docker:8.2
+  docker run -e XDEBUG_MODE=off -d --name prehooktest -v ${PWD}/../:/var/www/html achertovsky/devenv-docker:8.3
   while [[ true ]]; do
     launched=$(\
       docker exec prehooktest mysql -uroot -ppass -e "select 'launched'"\

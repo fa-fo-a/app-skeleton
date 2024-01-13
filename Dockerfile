@@ -15,24 +15,24 @@ RUN apt install -y git
 
 RUN add-apt-repository -y ppa:ondrej/php &&\
     apt update -y &&\
-    apt install -y php8.2 \
-        php8.2-fpm \
-        php8.2-xdebug \
-        php8.2-mysql \
-        php8.2-intl \
-        php8.2-zip \
-        php8.2-dom \
-        php8.2-mbstring \
+    apt install -y php8.3 \
+        php8.3-fpm \
+        php8.3-xdebug \
+        php8.3-mysql \
+        php8.3-intl \
+        php8.3-zip \
+        php8.3-dom \
+        php8.3-mbstring \
     &&\
     apt purge -y apache2
 
-RUN echo "zend_extension=$(find /usr/lib/php -name xdebug.so)" >> /etc/php/8.2/mods-available/xdebug.ini &&\
-    echo "xdebug.mode=debug,coverage" >> /etc/php/8.2/mods-available/xdebug.ini &&\
-    echo "xdebug.start_with_request=yes" >> /etc/php/8.2/mods-available/xdebug.ini &&\
-    echo "xdebug.client_host=host.docker.internal" >> /etc/php/8.2/mods-available/xdebug.ini &&\
-    echo "xdebug.client_port=9001" >> /etc/php/8.2/mods-available/xdebug.ini
+RUN echo "zend_extension=$(find /usr/lib/php -name xdebug.so)" >> /etc/php/8.3/mods-available/xdebug.ini &&\
+    echo "xdebug.mode=debug,coverage" >> /etc/php/8.3/mods-available/xdebug.ini &&\
+    echo "xdebug.start_with_request=yes" >> /etc/php/8.3/mods-available/xdebug.ini &&\
+    echo "xdebug.client_host=host.docker.internal" >> /etc/php/8.3/mods-available/xdebug.ini &&\
+    echo "xdebug.client_port=9001" >> /etc/php/8.3/mods-available/xdebug.ini
 
-RUN echo "short_open_tag=off" >> /etc/php/8.2/cli/php.ini
+RUN echo "short_open_tag=off" >> /etc/php/8.3/cli/php.ini
 
 RUN mkdir /run/php
 
@@ -60,10 +60,10 @@ RUN service mysql start &&\
 RUN groupadd -g 1000 -o app
 RUN useradd -m -u 1000 -g 1000 -o -s /bin/bash app
 
-RUN echo 'user = app' >> /etc/php/8.2/fpm/pool.d/www.conf &&\
-    echo 'group = app' >> /etc/php/8.2/fpm/pool.d/www.conf &&\
-    echo 'listen.owner = app' >> /etc/php/8.2/fpm/pool.d/www.conf &&\
-    echo 'listen.group = app' >> /etc/php/8.2/fpm/pool.d/www.conf
+RUN echo 'user = app' >> /etc/php/8.3/fpm/pool.d/www.conf &&\
+    echo 'group = app' >> /etc/php/8.3/fpm/pool.d/www.conf &&\
+    echo 'listen.owner = app' >> /etc/php/8.3/fpm/pool.d/www.conf &&\
+    echo 'listen.group = app' >> /etc/php/8.3/fpm/pool.d/www.conf
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 

@@ -22,6 +22,7 @@ RUN add-apt-repository -y ppa:ondrej/php &&\
         php8.3-intl \
         php8.3-zip \
         php8.3-dom \
+        php8.3-pcov \
         php8.3-mbstring \
     &&\
     apt purge -y apache2
@@ -31,6 +32,9 @@ RUN echo "zend_extension=$(find /usr/lib/php -name xdebug.so)" >> /etc/php/8.3/m
     echo "xdebug.start_with_request=yes" >> /etc/php/8.3/mods-available/xdebug.ini &&\
     echo "xdebug.client_host=host.docker.internal" >> /etc/php/8.3/mods-available/xdebug.ini &&\
     echo "xdebug.client_port=9001" >> /etc/php/8.3/mods-available/xdebug.ini
+
+RUN echo "pcov.enabled=0" >> /etc/php/8.3/cli/php.ini
+RUN echo "pcov.directory=/var/www/html" >> /etc/php/8.3/cli/php.ini
 
 RUN echo "short_open_tag=off" >> /etc/php/8.3/cli/php.ini
 

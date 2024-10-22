@@ -24,6 +24,7 @@ RUN add-apt-repository -y ppa:ondrej/php &&\
         php8.3-dom \
         php8.3-pcov \
         php8.3-mbstring \
+        php8.3-curl \
     &&\
     apt purge -y apache2
 

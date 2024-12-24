@@ -18,6 +18,20 @@ like
 USER_ID=${UID} docker compose up -d
 ```
 
+### to build and launch
+```
+docker compose up -d --force-recreate
+```
+
+### to start
+```
+docker compose start
+```
+### to stop with preserving internals
+```
+docker compose stop
+```
+
 ## database
 db name: app<br>
 test db name: app_test<br>
@@ -38,26 +52,13 @@ to trigger it use `MEMPROF_PROFILE=dump_on_limit php -d memory_limit=10m php hig
 ## xdebug
 to xdebug expect port 9001
 
-### prerequisites
-in dev env container nginx and fpm workers works under app:app user that is 1000:1000 corresponding to default ubuntu user UID:GID, so no right issues expected. familiarize with Dockerfile precisely to understand how it work so
-### to build and launch
-```
-docker build -t app .
-docker run -d -p80:80 --add-host=host.docker.internal:host-gateway --name app -v ${PWD}:/var/www/html -v ${HOME}/.ssh:/home/app/.ssh app
-```
-
-### to launch after built and launched
-```
-docker start app
-```
-
 ### to enter for cli commands
 with xdebug
 ```
-docker exec -u${UID} -it -w /var/www/html app /bin/bash
+docker exec -u${UID} -it -w /var/www/html -e XDEBUG_MODE=debug app /bin/bash
 ```
 
 without xdebug
 ```
-docker exec -u${UID} -it -w /var/www/html -e XDEBUG_MODE=off app /bin/bash
+docker exec -u${UID} -it -w /var/www/html -e app /bin/bash
 ```

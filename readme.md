@@ -3,6 +3,9 @@ Goal of repository is to provide convenient source for getting config for devenv
 
 # usage and, possible, (part of) readme of future project
 
+## proper project name in commands and all around
+after getting copy of that repository in any way you could by global search-replace replace `appnameplaceholder` to your application name
+
 ## container building
 there's both instructions in bibucket-pipelines.yml and [hub.docker.com autobuilds](https://docs.docker.com/docker-hub/builds/) can be used for that<br>
 to launch phpunit tests in hub.docker.com autobuilds define env var RUN_TESTS in autobuilds config.<br>
@@ -55,10 +58,10 @@ to xdebug expect port 9001
 ### to enter for cli commands
 with xdebug
 ```
-docker exec -u${UID} -it -w /var/www/html -e XDEBUG_MODE=debug app /bin/bash
+docker exec -u${UID} -it -w /var/www/html -e XDEBUG_MODE=debug appnameplaceholder /bin/bash
 ```
 
 without xdebug
 ```
-docker exec -u${UID} -it -w /var/www/html -e app /bin/bash
+docker exec -u${UID} -it -w /var/www/html -e appnameplaceholder /bin/bash
 ```

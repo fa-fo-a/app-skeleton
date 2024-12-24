@@ -17,7 +17,7 @@ services:
     depends_on:
       - php
   php:
-    container_name: app
+    container_name: appnameplaceholder
     build:
       context: .
       dockerfile: ./docker/Dockerfile_php_dev

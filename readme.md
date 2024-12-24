@@ -11,11 +11,29 @@ _Note that migrations part commented and you may need to uncomment/create own in
 ## local docker
 docker should be installed to run commands below
 
+### my user is not 1000
+if you have user differ from 1000 (check by `echo $UID`), prepend any following docker-compose commands by `USER_ID=${UID}`
+like
+```
+USER_ID=${UID} docker compose up -d
+```
+
 ## database
 db name: app<br>
 test db name: app_test<br>
 user: app<br>
 password: pass<br>
+
+## supervisord
+at first launch it gonna give up launching stuff due to no migrations and etc
+make sure everything migrated and just stop/start containers after project setup
+all it logs is inside `var/log` so track it by need
+to work with `supervisorctl` as we have non-usual place for `.sock` do not forget to define it explicitly by `supervisorctl -c /etc/supervisor/conf.d/app.conf action`
+
+## memprof
+to profile memory we use https://github.com/arnaud-lb/php-memory-profiler
+`memprof.output_dir` at container is set to `/var/www/html/var`, so files would appeat at `/var/www/html/var`
+to trigger it use `MEMPROF_PROFILE=dump_on_limit php -d memory_limit=10m php highloadscript.php`
 
 ## xdebug
 to xdebug expect port 9001

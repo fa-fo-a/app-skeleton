@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:8.0.40-debian
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_USER: app
+      MYSQL_PASSWORD: pass
+    volumes:
+      - ./mysql_init_dev:/docker-entrypoint-initdb.d
+  sut:
+    volumes:
+      - ../:/var/www/html
+    working_dir: /var/www/html
+    image: achertovsky/php-infrastructure:dev_cli
+    depends_on:
+      db:
+        condition: service_started
+    command: ./healthcheck.sh

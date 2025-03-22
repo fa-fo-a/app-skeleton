@@ -19,15 +19,12 @@ services:
       - php
   php:
     container_name: appnameplaceholder
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile_php_dev
-      args:
-        - USER_ID=${USER_ID:-1000}
+    # in case you have different than 1000 user id you gotta play around with creating same id user inside of container. check https://github.com/fa-fo-a/infrastructure/blob/dev_cli/Dockerfile_php_dev_cli
+    user: "${USER_ID:-1000}:${USER_ID:-1000}"
+    image: achertovsky/php-infrastructure:dev_cli
     volumes:
       - ./:/var/www/html
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
       - db
-    user: "${USER_ID:-1000}:${USER_ID:-1000}"

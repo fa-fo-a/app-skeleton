@@ -1,0 +1,11 @@
+FROM achertovsky/php-infrastructure:base_swoole
+
+COPY . /var/www/html
+WORKDIR /var/www/html
+
+RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini && \
+    echo "short_open_tag=off" >> /usr/local/etc/php/php.ini
+
+EXPOSE 80
+
+CMD bin/console swoole:server:run

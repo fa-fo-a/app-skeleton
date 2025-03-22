@@ -1,10 +1,7 @@
-# general
-Goal of repository is to provide convenient source for getting config for devenv by author and, maybe, people who find it useful.
-
-# usage and, possible, (part of) readme of future project
-
-## proper project name in commands and all around
+# todo
 after getting copy of that repository in any way you could by global search-replace replace `appnameplaceholder` to your application name
+
+# general
 
 ## container building
 there's both instructions in bibucket-pipelines.yml and [hub.docker.com autobuilds](https://docs.docker.com/docker-hub/builds/) can be used for that<br>
@@ -63,5 +60,5 @@ docker exec -u${UID} -it -w /var/www/html -e XDEBUG_MODE=debug appnameplaceholde
 
 without xdebug
 ```
-docker exec -u${UID} -it -w /var/www/html -e appnameplaceholder /bin/bash
+docker exec -u${UID} -it -w /var/www/html appnameplaceholder /bin/bash
 ```

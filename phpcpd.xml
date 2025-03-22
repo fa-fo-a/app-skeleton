@@ -1,0 +1,9 @@
+<phpcpd>
+    <fuzzy>false</fuzzy>
+    <minLines>5</minLines>
+    <minTokens>30</minTokens>
+    <exclude>
+        <path>vendor</path>
+        <path>/var/www/html/var</path>
+    </exclude>
+</phpcpd>

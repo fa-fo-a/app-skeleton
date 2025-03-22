@@ -1,0 +1,6 @@
+parameters:
+	level: 9
+	excludePaths:
+		- vendor/*
+		- */vendor/*
+		- /var/www/html/var/*

@@ -1,0 +1,6 @@
+<phpmnd>
+    <exclude>
+        <path>vendor</path>
+        <path>var</path>
+    </exclude>
+</phpmnd>

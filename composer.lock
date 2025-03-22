@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fcbc75cf388e97e4509f7e655c5fe4f",
+    "content-hash": "3f50ac363231708aad5325ce2801154c",
     "packages": [
         {
             "name": "symfony/deprecation-contracts",
@@ -407,16 +407,16 @@
         },
         {
             "name": "achertovsky/phptools",
-            "version": "0.4.8",
+            "version": "0.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/achertovsky/phptools.git",
-                "reference": "10a8fc273ee2fdd3afcc383b0ccd1b9ea75fc444"
+                "reference": "472ed3af53afa62d9ca971244c81d02e7f501438"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/achertovsky/phptools/zipball/10a8fc273ee2fdd3afcc383b0ccd1b9ea75fc444",
-                "reference": "10a8fc273ee2fdd3afcc383b0ccd1b9ea75fc444",
+                "url": "https://api.github.com/repos/achertovsky/phptools/zipball/472ed3af53afa62d9ca971244c81d02e7f501438",
+                "reference": "472ed3af53afa62d9ca971244c81d02e7f501438",
                 "shasum": ""
             },
             "require": {
@@ -438,9 +438,9 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/achertovsky/phptools/issues",
-                "source": "https://github.com/achertovsky/phptools/tree/0.4.8"
+                "source": "https://github.com/achertovsky/phptools/tree/0.4.9"
             },
-            "time": "2025-03-22T14:22:14+00:00"
+            "time": "2025-03-22T14:36:50+00:00"
         },
         {
             "name": "composer/pcre",

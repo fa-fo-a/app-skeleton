@@ -1,0 +1,22 @@
+namespaces:
+  Core:
+    - DateTimeImmutable
+    - RuntimeException
+    - DateTimeInterface
+    - Throwable
+  UI:
+    - Psr
+    - UseCase
+    - Core
+    - DateTimeInterface
+    - Throwable
+    - DateTimeImmutable
+  UseCase:
+    - Core
+    - DateTimeImmutable
+    - Psr
+    - DateTimeInterface
+exclude:
+  - vendor
+  - var
+  - .vscode

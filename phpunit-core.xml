@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.1/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         cacheDirectory=".phpunit.cache"
+         executionOrder="depends,defects"
+         requireCoverageMetadata="false"
+         beStrictAboutCoverageMetadata="false"
+         beStrictAboutOutputDuringTests="true"
+         failOnRisky="true"
+         failOnWarning="true">
+    <testsuites>
+        <testsuite name="default">
+            <directory>tests/TestDouble</directory>
+            <directory>tests/UseCase</directory>
+            <directory>tests/Infrastructure</directory>
+        </testsuite>
+    </testsuites>
+
+    <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
+        <include>
+            <directory>src/Core</directory>
+            <directory>src/UseCase</directory>
+            <directory>src/UI/Http/Provider</directory>
+            <directory>src/UI/Common</directory>
+            <directory suffix="Fake.php">tests</directory>
+        </include>
+        <exclude>
+            <directory>src/Core</directory>
+            <directory>src/UseCase/DTO</directory>
+            <directory>src/UseCase/Exception</directory>
+            <directory>src/UI/Http/DTO</directory>
+            <directory>src/UI/Http/ResponseFactory</directory>
+            <directory>tests/TestDouble/Core/Entity</directory>
+            <directory suffix="HumbleFake.php">tests</directory>
+        </exclude>
+    </source>
+</phpunit>

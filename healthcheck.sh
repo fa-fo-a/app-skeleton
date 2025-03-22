@@ -1,6 +1,6 @@
 #!/bin/bash
 
-until bin/console -q -etest d:m:m; do sleep 5; done || exit 1
+#until bin/console -q -etest d:m:m; do sleep 5; done || exit 1
 bin/console -e test cache:clear || exit 1
 vendor/bin/phpunit --stop-on-error --stop-on-failure || exit 1
 bin/console -edev

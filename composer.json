@@ -33,5 +33,10 @@
             "symfony/flex": true,
             "phpstan/extension-installer": true
         }
+    },
+    "scripts": {
+        "post-install-cmd": [   
+            "composer symfony:recipes:install"
+        ]
     }
 }

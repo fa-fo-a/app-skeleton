@@ -31,7 +31,6 @@ services:
       #   condition: service_started
       project-setup:
         condition: service_completed_successfully
-
   project-setup:
     # in case you have different than 1000 user id you gotta play around with creating same id user inside of container. check https://github.com/fa-fo-a/infrastructure/blob/dev_cli/Dockerfile_php_dev_cli
     user: "${USER_ID:-1000}:${USER_ID:-1000}"
@@ -40,4 +39,4 @@ services:
     image: achertovsky/php-infrastructure:dev_cli
     depends_on:
       - db
-    entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear"]`
+    entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear"]

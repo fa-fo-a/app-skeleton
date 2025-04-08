@@ -1,5 +1,5 @@
 # todo
-`docker run -u${UID} -w/app -v${PWD}:/app -it --rm composer:latest create-project fa-fo-a/app-skeleton:1.0.4`<br>
+`docker run -u${UID} -w/app -v${PWD}:/app -it --rm composer:latest create-project fa-fo-a/app-skeleton:1.1.0`<br>
 after getting copy of that repository you could by global search-replace replace `appnameplaceholder` to your application name
 
 # general

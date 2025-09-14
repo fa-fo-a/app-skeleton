@@ -13,7 +13,7 @@ services:
   #   image: nginx:latest
   #   volumes:
   #     - ./public:/var/www/html/public
-  #     - ./docker/nginx/app-dev.conf:/etc/nginx/conf.d/default.conf
+  #     - ./docker/nginx/app_dev.conf:/etc/nginx/conf.d/default.conf
   #   ports:
   #     - "80:80"
   #   depends_on:
@@ -22,7 +22,7 @@ services:
     container_name: appnameplaceholder
     # in case you have different than 1000 user id you gotta play around with creating same id user inside of container. check https://github.com/fa-fo-a/infrastructure/blob/dev_cli/Dockerfile_php_dev_cli
     user: "${USER_ID:-1000}:${USER_ID:-1000}"
-    image: achertovsky/php-infrastructure:dev_cli
+    image: achertovsky/php-infrastructure:dev_fpm
     volumes:
       - ./:/var/www/html
     extra_hosts:

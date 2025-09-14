@@ -8,9 +8,8 @@ when its done that part could be removed and following content (below) may be us
 ## make
 for flawless experience you need to install `make`
 
-## container building
-there's both instructions in bibucket-pipelines.yml and [hub.docker.com autobuilds](https://docs.docker.com/docker-hub/builds/) can be used for that<br>
-to launch phpunit tests in hub.docker.com autobuilds define env var RUN_TESTS in autobuilds config.<br>
+## CI\CD
+inside of `docker` dir there's `hooks` that is configured for container building at hub.docker.com
 _Note that migrations part commented and you may need to uncomment/create own in both solutions_
 
 ## local docker

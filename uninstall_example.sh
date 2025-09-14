@@ -6,7 +6,7 @@ rm -r src/Infrastructure/ArgumentResolver
 
 rm config/routes.yaml && touch config/routes.yaml
 
-mv docker-compose.yml.base docker-compose.yml && rm docker-compose.yml.base
-mv config/services.yaml.base config/services.yaml && rm config/services.yaml.base
+mv docker-compose.yml.base docker-compose.yml
+mv config/services.yaml.base config/services.yaml
 
 composer remove psr/http-message psr/http-factory guzzlehttp/guzzle symfony/psr-http-message-bridge

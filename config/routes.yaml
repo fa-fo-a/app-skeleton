@@ -1,0 +1,4 @@
+hello_world:
+    path: !php/const UI\Http\Controller\HelloWorldController::ROUTE
+    controller: UI\Http\Controller\HelloWorldController
+    methods: ['GET']

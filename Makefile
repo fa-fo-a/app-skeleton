@@ -9,6 +9,10 @@ build:
 	@echo "Building and launching the project..."
 	USER_ID=$(USER_ID) docker compose up -d --force-recreate
 
+purge:
+	@echo "Purging the project..."
+	USER_ID=$(USER_ID) docker compose down --volumes --remove-orphans
+
 # Start the project
 start:
 	@echo "Starting the project..."

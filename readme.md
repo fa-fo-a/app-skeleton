@@ -28,6 +28,11 @@ USER_ID=${UID} docker compose up -d
 make build
 ```
 
+### to completely remove
+```
+make purge
+```
+
 ### to start
 ```
 make start

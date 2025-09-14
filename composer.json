@@ -46,7 +46,8 @@
             "composer symfony:recipes:install symfony/console",
             "composer symfony:recipes:install symfony/flex",
             "composer symfony:recipes:install symfony/framework-bundle",
-            "composer symfony:recipes:install symfony/routing"
+            "composer symfony:recipes:install symfony/routing",
+            "rm -rf src/Controller"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",

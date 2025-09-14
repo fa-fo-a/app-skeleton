@@ -50,6 +50,11 @@ test db name: app_test<br>
 user: app<br>
 password: pass<br>
 
+### how use with project defaults
+to use it you have to:
+- uncomment db part in docker-compose
+- uncomment db migrations in healthcheck.sh
+
 ## memprof
 to profile memory we use https://github.com/arnaud-lb/php-memory-profiler
 `memprof.output_dir` at container is set to `/var/www/html/var`, so files would appeat at `/var/www/html/var`

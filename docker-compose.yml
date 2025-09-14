@@ -40,4 +40,6 @@ services:
     image: achertovsky/php-infrastructure:dev_cli
     # depends_on:
     #   - db
+    # entrypoint with db migrations
+    # entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear && bin/console d:m:m && bin/console -e test d:m:m"]
     entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear"]

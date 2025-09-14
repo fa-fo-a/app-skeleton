@@ -1,3 +1,4 @@
+# if you want to work with database and web uncomment db and nginx services if you need them
 services:
   # db:
   #   image: mysql:8.0.40-debian
@@ -37,6 +38,6 @@ services:
     volumes:
       - ./:/var/www/html
     image: achertovsky/php-infrastructure:dev_cli
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear"]

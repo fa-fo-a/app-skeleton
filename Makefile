@@ -32,3 +32,9 @@ enter-debug:
 enter:
 	@echo "Entering the container without xdebug..."
 	docker exec -u$(USER_ID) -it -w /var/www/html $(CONTAINER_NAME) /bin/bash
+
+uninstall_example:
+	@echo "WARNING: This action can only be performed once. If committed, it cannot be undone."
+	@echo "Please carefully review the files to be removed to ensure none are necessary."
+	docker exec -u$(USER_ID) -it $(CONTAINER_NAME) /bin/bash /var/www/html/uninstall_example.sh
+	docker exec -u$(USER_ID) -it $(CONTAINER_NAME) rm -f /var/www/html/uninstall_example.sh

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm src/UI/Http/Controller/HelloWorldController.php
 rm -r src/UI/Http/Factory
 rm -r src/Infrastructure/ArgumentResolver

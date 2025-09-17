@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace UseCase;
 
+use Core\Entity\Result;
 use Core\Factory\ResultFactory;
 use Core\Saver\ResultSaverInterface;
 use UseCase\DTO\TwoNumbersDTO;
@@ -18,7 +19,7 @@ class SumTwoPositiveNumbersHandler
     ) {
     }
 
-    public function handle(TwoNumbersDTO $dto)
+    public function handle(TwoNumbersDTO $dto): Result
     {
         $this->validator->validate($dto);
 

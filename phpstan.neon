@@ -1,6 +1,17 @@
 parameters:
+	treatPhpDocTypesAsCertain: false
+	symfony:
+		containerXmlPath: var/cache/dev/Infrastructure_KernelDevDebugContainer.xml
+	scanDirectories:
+		- var/cache/dev/Symfony/Config
+	scanFiles:
+		- vendor/symfony/dependency-injection/Loader/Configurator/ContainerConfigurator.php
 	level: 9
 	excludePaths:
 		- vendor/*
 		- */vendor/*
 		- /var/www/html/var/*
+	ignoreErrors:
+		-
+			message: '#Unsafe usage of new static\(\).#'
+			path: src/Core/Exception/ApplicationException.php

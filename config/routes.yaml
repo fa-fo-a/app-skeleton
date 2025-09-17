@@ -1,4 +1,4 @@
-hello_world:
-    path: !php/const UI\Http\Controller\HelloWorldController::ROUTE
-    controller: UI\Http\Controller\HelloWorldController
-    methods: ['GET']
+add_two_positive_numbers:
+    path: !php/const UI\Http\Controller\SumTwoPositiveNumbersController::ROUTE
+    controller: UI\Http\Controller\SumTwoPositiveNumbersController
+    methods: !php/const UI\Http\Controller\SumTwoPositiveNumbersController::METHODS

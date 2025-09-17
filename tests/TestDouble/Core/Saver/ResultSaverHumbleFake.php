@@ -9,6 +9,9 @@ use Core\Entity\Result;
 
 class ResultSaverHumbleFake implements ResultSaverInterface
 {
+    /**
+     * @var Result[] $savedEntities
+     */
     public array $savedEntities = [];
 
     public function save(Result $entity): void

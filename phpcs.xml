@@ -345,4 +345,5 @@
     <!-- checked by PSR12.Classes.AnonClassDeclaration -->
     <exclude-pattern>vendor/</exclude-pattern>
     <exclude-pattern>/var/www/html/var/</exclude-pattern>
+    <exclude-pattern>src/Infrastructure/Persistence/Migrations/</exclude-pattern>
 </ruleset>

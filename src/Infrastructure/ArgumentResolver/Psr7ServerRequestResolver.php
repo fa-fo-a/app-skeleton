@@ -17,14 +17,13 @@ class Psr7ServerRequestResolver implements ValueResolverInterface
     ) {
     }
 
+    /**
+     * @return iterable<ServerRequestInterface>
+     */
     public function resolve(
         Request $request,
         ArgumentMetadata $argument
     ): iterable {
-        if (ServerRequestInterface::class !== $argument->getType()) {
-            return [];
-        }
-
         return [
             $this->psrHttpFactory->createRequest($request)
         ];

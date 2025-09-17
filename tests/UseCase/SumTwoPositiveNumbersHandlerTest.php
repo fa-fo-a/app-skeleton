@@ -69,6 +69,9 @@ class SumTwoPositiveNumbersHandlerTest extends TestCase
         );
     }
 
+    /**
+     * @return array<string, array<int>>
+     */
     public static function dataOneOfNumbersNegative(): array
     {
         return [

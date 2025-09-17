@@ -10,6 +10,7 @@ use Core\Exception\SaveException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infrastructure\Persistence\ResultSaver;
+use Exception;
 
 class ResultSaverTest extends KernelTestCase
 {
@@ -57,7 +58,7 @@ class ResultSaverTest extends KernelTestCase
         $mockEntityManager = $this->createMock(EntityManagerInterface::class);
         $mockEntityManager->expects($this->once())
             ->method('flush')
-            ->will($this->throwException(new \Exception('Flush failed')));
+            ->will($this->throwException(new Exception('Flush failed')));
 
         $saver = new ResultSaver($mockEntityManager);
 

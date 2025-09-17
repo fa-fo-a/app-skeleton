@@ -5,6 +5,8 @@ when its done that part could be removed and following content (below) may be us
 
 project has example of architecture inside, it could be removed by `make uninstall_example`
 
+To check endpoint that it works from the container you may do `/bin/bash test_request.sh`
+
 # general
 
 ## make

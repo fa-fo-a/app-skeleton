@@ -16,8 +16,8 @@ services: &services
     Infrastructure\:
         resource: '../src/Infrastructure'
         exclude:
-            - '../src/Infrastructure/Persistance/Migrations/'
-            - '../src/Infrastructure/Persistance/Fixtures/'
+            - '../src/Infrastructure/Persistence/Migrations/'
+            - '../src/Infrastructure/Persistence/Fixtures/'
             - '../src/Infrastructure/Security/UserWrapper.php'
     UI\:
         resource: '../src/UI'

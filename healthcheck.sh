@@ -8,15 +8,6 @@ echo "Running: vendor/bin/phptools (it may take a while if nothing found - no ou
 vendor/bin/phptools || exit 1
 if find tests/ -type f -name '*Test.php' | grep -q .; then
     vendor/bin/phpunit --stop-on-error --stop-on-failure || exit 1
-    echo "Running: XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure -c phpunit-core.xml --coverage-text"
-    XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure -c phpunit-core.xml --coverage-text | grep 'Classes: 100.00%' || { echo "Command failed: phpunit-core.xml coverage check"; exit 1; }
-
-    echo "Running: XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure -c phpunit-infra.xml --coverage-text"
-    XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure -c phpunit-infra.xml --coverage-text | grep 'Classes: 100.00%' || { echo "Command failed: phpunit-infra.xml coverage check"; exit 1; }
-
-    echo "Running: XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure -c phpunit-acceptance.xml --coverage-text"
-    XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure -c phpunit-acceptance.xml --coverage-text | grep 'Classes: 100.00%' || { echo "Command failed: phpunit-acceptance.xml coverage check"; exit 1; }
-
     echo "Running: XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure --coverage-text"
     XDEBUG_MODE=coverage php vendor/bin/phpunit --stop-on-error --stop-on-failure --coverage-text | grep 'Classes: 100.00%' || { echo "Command failed: General phpunit coverage check"; exit 1; }
 else

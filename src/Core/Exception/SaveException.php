@@ -2,14 +2,19 @@
 
 declare(strict_types=1);
 
-use Core\Exception\ApplicationException;
+namespace Core\Exception;
+
+use Throwable;
 
 class SaveException extends ApplicationException
 {
     public const string CANNOT_SAVE_ENTITY = 'Cannot save entity';
 
-    public static function throwCannotSave(): void
+    public static function throwCannotSave(Throwable $previous): void
     {
-        parent::throw(self::CANNOT_SAVE_ENTITY);
+        parent::throw(
+            message: self::CANNOT_SAVE_ENTITY,
+            previous: $previous
+        );
     }
 }

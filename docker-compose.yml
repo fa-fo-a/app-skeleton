@@ -1,14 +1,14 @@
 # if you want to work with database and web uncomment db and nginx services if you need them
 services:
-  # db:
-  #   image: mysql:8.0.40-debian
-  #   environment:
-  #     MYSQL_DATABASE: app
-  #     MYSQL_ROOT_PASSWORD: pass
-  #     MYSQL_USER: app
-  #     MYSQL_PASSWORD: pass
-  #   volumes:
-  #     - ./docker/mysql_init_dev:/docker-entrypoint-initdb.d
+  db:
+    image: mysql:8.0.40-debian
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_USER: app
+      MYSQL_PASSWORD: pass
+    volumes:
+      - ./docker/mysql_init_dev:/docker-entrypoint-initdb.d
   nginx:
     image: nginx:latest
     volumes:
@@ -28,8 +28,8 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
-      # db:
-      #   condition: service_started
+      db:
+        condition: service_started
       project-setup:
         condition: service_completed_successfully
   project-setup:
@@ -38,8 +38,8 @@ services:
     volumes:
       - ./:/var/www/html
     image: achertovsky/php-infrastructure:dev_cli
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
     # entrypoint with db migrations
-    # entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear && bin/console d:m:m && bin/console -e test d:m:m"]
-    entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear"]
+    entrypoint: ["sh", "-c", "composer i && bin/console cache:clear && bin/console -e test cache:clear && bin/console d:m:m && bin/console -e test d:m:m"]
+

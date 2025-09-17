@@ -1,11 +1,13 @@
 # to install the project
-`docker run -u${UID} -w/app -v${PWD}:/app -it --rm composer:latest create-project fa-fo-a/app-skeleton:1.2.0`<br>
+`docker run -u${UID} -w/app -v${PWD}:/app -it --rm composer:latest create-project fa-fo-a/app-skeleton:1.3.0`<br>
 after getting copy of that repository you could by global search-replace replace `appnameplaceholder` to your application name
 when its done that part could be removed and following content (below) may be used as project readme
 
 project has example of architecture inside, it could be removed by `make uninstall_example`
 
 To check endpoint that it works from the container you may do `/bin/bash test_request.sh`
+
+_yeah, its clear that example is nothing useful. idea to showcase_
 
 # general
 

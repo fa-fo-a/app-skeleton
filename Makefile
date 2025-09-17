@@ -33,8 +33,16 @@ enter:
 	@echo "Entering the container without xdebug..."
 	docker exec -u$(USER_ID) -it -w /var/www/html $(CONTAINER_NAME) /bin/bash
 
+healthcheck:
+	@echo "Tests and static analyzing of application..."
+	@if ! docker ps --format '{{.Names}}' | grep -q "^$(CONTAINER_NAME)\$$"; then \
+		echo "Container $(CONTAINER_NAME) is not running. Run it by make build or make start "; \
+		exit 1; \
+	fi
+	docker exec -u$(USER_ID) -it -w /var/www/html $(CONTAINER_NAME) /bin/bash ./healthcheck.sh
+
 uninstall_example:
-	@echo "WARNING: This action can only be performed once. If committed, it cannot be undone."
+	@echo "WARNING: This action can only be performed once, as it removes script that know what to remove."
 	@echo "Please carefully review the files to be removed to ensure none are necessary."
 	docker exec -u$(USER_ID) -it $(CONTAINER_NAME) /bin/bash /var/www/html/uninstall_example.sh
 	docker exec -u$(USER_ID) -it $(CONTAINER_NAME) rm -f /var/www/html/uninstall_example.sh

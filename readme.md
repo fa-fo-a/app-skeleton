@@ -3,13 +3,15 @@
 after getting copy of that repository you could by global search-replace replace `appnameplaceholder` to your application name
 when its done that part could be removed and following content (below) may be used as project readme
 
+project has example of architecture inside, it could be removed by `make uninstall_example`
+
 # general
 
 ## make
 for flawless experience you need to install `make`
 
 ## CI\CD
-inside of `docker` dir there's `hooks` that is configured for container building at hub.docker.com
+inside of `docker` dir there's `hooks` that is configured for container building at hub.docker.com<br>
 _Note that migrations part commented and you may need to uncomment/create own in both solutions_
 
 ## local docker
@@ -62,7 +64,7 @@ to trigger it use `MEMPROF_PROFILE=dump_on_limit php -d memory_limit=10m php hig
 ## xdebug
 to xdebug expect port 9001
 
-### to enter for cli commands
+## to enter for cli commands
 with xdebug
 ```
 make enter-debug
@@ -71,4 +73,9 @@ make enter-debug
 without xdebug
 ```
 make enter
+```
+
+## perform application checks
+```
+make healthcheck
 ```

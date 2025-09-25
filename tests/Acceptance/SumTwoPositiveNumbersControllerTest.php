@@ -14,8 +14,7 @@ class SumTwoPositiveNumbersControllerTest extends WebTestCase
 
     protected function setUp(): void
     {
-        parent::setUp();
-        $this->client = self::createClient();
+        $this->client = static::createClient();
     }
 
     public function testSuccess(): void
@@ -34,7 +33,7 @@ class SumTwoPositiveNumbersControllerTest extends WebTestCase
             )
         );
 
-        $this->assertResponseIsSuccessful();
+        self::assertResponseIsSuccessful();
 
         $this->assertJsonStringEqualsJsonString(
             (string) json_encode(['result' => 15], JSON_THROW_ON_ERROR),
@@ -55,7 +54,7 @@ class SumTwoPositiveNumbersControllerTest extends WebTestCase
             (string) json_encode([])
         );
 
-        $this->assertResponseStatusCodeSame(400);
+        self::assertResponseStatusCodeSame(400);
     }
 
     public function testCannotPassNegativeNumbers(): void
@@ -74,6 +73,6 @@ class SumTwoPositiveNumbersControllerTest extends WebTestCase
             )
         );
 
-        $this->assertResponseStatusCodeSame(400);
+        self::assertResponseStatusCodeSame(400);
     }
 }

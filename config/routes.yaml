@@ -2,3 +2,8 @@ add_two_positive_numbers:
     path: !php/const UI\Http\Controller\SumTwoPositiveNumbersController::ROUTE
     controller: UI\Http\Controller\SumTwoPositiveNumbersController
     methods: !php/const UI\Http\Controller\SumTwoPositiveNumbersController::METHODS
+
+exchange_rates:
+    path: !php/const UI\Http\Controller\ExchangeRatesController::ROUTE
+    controller: UI\Http\Controller\ExchangeRatesController
+    methods: !php/const UI\Http\Controller\ExchangeRatesController::METHODS

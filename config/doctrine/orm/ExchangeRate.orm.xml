@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Core\Entity\ExchangeRate" table="exchange_rates">
+        <id name="id" type="string">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="currencyFrom" type="string" column="currency_from" length="3"/>
+        <field name="currencyTo" type="string" column="currency_to" length="3"/>
+        <field name="rate" type="decimal" column="rate" precision="10" scale="6"/>
+        <field name="date" type="datetime_immutable" column="date"/>
+
+        <indexes>
+            <index name="idx_currencies_date" columns="currency_from,currency_to,date"/>
+            <index name="idx_date" columns="date"/>
+        </indexes>
+    </entity>
+</doctrine-mapping>

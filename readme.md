@@ -1,5 +1,5 @@
 # to install the project
-`docker run -u${UID} -w/app -v${PWD}:/app -it --rm composer:latest create-project fa-fo-a/app-skeleton:1.3.0`<br>
+`docker run -u${UID} -w/app -v${PWD}:/app -it --rm composer:latest create-project fa-fo-a/app-skeleton:1.5.0`<br>
 after getting copy of that repository you could by global search-replace replace `appnameplaceholder` to your application name
 when its done that part could be removed and following content (below) may be used as project readme
 

@@ -1,0 +1,39 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "non-existing-dir"
+        ]
+    },
+    "timeout": 10,
+    "threads": "max",
+    "logs": {
+        "text": "var/infection/infection.log",
+        "html": "var/infection/infection.html",
+        "summary": "var/infection/summary.log",
+        "json": "var/infection/infection-log.json",
+        "perMutator": "var/infection/per-mutator.md",
+        "github": true,
+        "gitlab": "var/infection/gitlab-code-quality.json",
+        "stryker": {
+            "badge": "/^release-.*$/"
+        },
+        "summaryJson": "var/infection/summary.json"
+    },
+    "tmpDir": "var/infection/tmp-folder",
+    "mutators": {
+        "global-ignore": [
+            "FooClass::__construct"
+        ],
+        "global-ignoreSourceCodeByRegex": [
+            "Assert::.*"
+        ],
+        "@default": true,
+        "@function_signature": false
+    },
+    "testFramework":"phpunit",
+    "testFrameworkOptions": "",
+    "initialTestsPhpOptions": "-d xdebug.mode=coverage"
+}
